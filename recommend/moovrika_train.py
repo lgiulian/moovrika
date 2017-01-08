@@ -9,7 +9,7 @@ model = LightFM(loss='warp', learning_schedule='adagrad',
                     user_alpha=alpha,
                     item_alpha=alpha)
 model.fit(movielens['train'], epochs=epochs, num_threads=8)
-moovrika_core.sample_recommendation(model, movielens, [1])
+moovrika_core.sample_recommendation(model, movielens, [0])
 datetime.datetime.now()
 from lightfm.evaluation import auc_score
 print(auc_score(model, movielens['test'], train_interactions=movielens['train']).mean())
